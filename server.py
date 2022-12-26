@@ -13,7 +13,11 @@ def home() -> str:
 
 @server.route('/<num>')
 def check_num(num: int) -> str:
-    num = int(num)
+    try:
+        num = int(num)
+    except ValueError:
+        return '<h1>Enter a valid number</h1>' \
+               '<iframe src="https://giphy.com/embed/htUzp23godb4ywmObp" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'
 
     if num == random_number:
         return '<h1>You win!!</h1>' \
